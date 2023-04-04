@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./file.css">
+</head>
+<body>
+    <h1> JAVASCRIPT PROMISE QUESTIONS</h1>
+    <h2>1. WRITE AN EXAMPLE EXPLAINING HOW YOU CAN WRITE A CALLBACK FUNCTION</h2>
+    <div>
+        <pre>
+            setTimeout(() =>{
+                setTimeout(()=>{
+                    setTimeout(()=>{
+                        console.log("hello")
+                    },3000);
+                },2000);
+            },1000);
+        </pre>
+        </div>
+        
+            <h2>OUTPUT</h2>
+            <hr>
+            <div>
+            
+            <p>hello </p>
+            </div>
+            <p>Explaination:-- the call back function which is to be excecuted after another<br>
+            function has finished excecution </p>
+        
+
+        <h2>2.Write a callback function to print numbers from 1 to 7, in which 1 should be printed after 1 sec, 2 should be <br>
+            printed after 2 sec, 3 should be printed after 3 sec, and so on.</h2>
+        <div>
+            <pre>
+                count=0;
+                for(i=1;i<8;i++){
+                    setTimeout(()=>{
+                        console.log(count++)
+                    },i*1000);
+                }
+            </pre>
+        </div>
+        
+        <h2>OUTPUT</h2>
+        
+        <hr>
+        <div>
+        1<br>2<br>3<br>4<br>5<br>6<br>7
+        </div>
+        
+        <h2>3.Write the promise function to print numbers from 1 to 7, in which 1 should be printed after 1 sec, <br>
+            2 should be printed after 2 sec, 3 should be printed after 3 sec, and so on. 
+        </h2>
+        <div>
+            <pre>
+                function count (nums, time){
+                    return new promise((res,rej)=>{
+                        if(nums>0){
+                            setTimeout(()=>{
+                                res(nums++)
+                            },time);
+                        }
+                        else{
+                            rej("error")
+                        }
+                    })
+                }
+            count(0,1000)
+            .then((data)=> console.log(data))
+            .catch((error)=>console.log(error))
+            </pre>
+        </div>
+         
+        <h2>OUTPUT</h2>
+        
+        <hr>
+        <div>
+        1<br>2<br>3<br>4<br>5<br>6<br>7
+        </div>
+        <h2>4. Create a promise function accepting an argument, if yes is passed to the function then <br>
+            it should go to resolved state and print Promise Resolved, and if nothing is passed<br>
+            then it should go to reject the state and catch the error and print Promise Rejected 
+            </h2>
+        <div>
+            <pre>
+              function myPromise(){
+                return new Promise((res,rej)=>{
+                    setTimeout(()=>{
+                        if(data=="yes"){
+                            console.log("promise resolved")
+                        
+                        }else{
+                            console.log("Rejected")
+                        }
+                    })
+                },1000)
+              }
+              mypromise()
+              .then((res)=>{console.log(res);})
+              .catch((err)=>{
+                console.log(err);
+              })
+            </pre>
+        </div>
+        <h2>.OUTPUT</h2>
+        <hr>
+        <div>promise resolved</div>
+      
+
+</body>
+</html>
